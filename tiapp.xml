@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+    <id>com.chm.dragdrop</id>
+    <name>dragdrop</name>
+    <version>1.0</version>
+    <publisher>ramirodavid</publisher>
+    <url>http://</url>
+    <description/>
+    <copyright>2015 by ramirodavid</copyright>
+    <icon>appicon.png</icon>
+    <fullscreen>false</fullscreen>
+    <navbar-hidden>false</navbar-hidden>
+    <analytics>true</analytics>
+    <guid>9a484203-0ec7-426f-9333-f4ae7bc882fc</guid>
+    <property name="ti.ui.defaultunit" type="string">dp</property>
+    <ios>
+        <plist>
+            <dict>
+                <key>UISupportedInterfaceOrientations~iphone</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                </array>
+                <key>UISupportedInterfaceOrientations~ipad</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                    <string>UIInterfaceOrientationPortraitUpsideDown</string>
+                    <string>UIInterfaceOrientationLandscapeLeft</string>
+                    <string>UIInterfaceOrientationLandscapeRight</string>
+                </array>
+                <key>UIRequiresPersistentWiFi</key>
+                <false/>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+                <key>UIStatusBarHidden</key>
+                <false/>
+                <key>UIStatusBarStyle</key>
+                <string>UIStatusBarStyleDefault</string>
+            </dict>
+        </plist>
+    </ios>
+    <android xmlns:android="http://schemas.android.com/apk/res/android">
+    <manifest>
+        <application>
+            <activity
+                android:configChanges="keyboardHidden|orientation"
+                android:name="org.appcelerator.titanium.TiActivity" android:screenOrientation="landscape"/>
+            <activity
+                android:configChanges="keyboardHidden|orientation"
+                android:name="org.appcelerator.titanium.TiTranslucentActivity"
+                android:screenOrientation="landscape" android:theme="@android:style/Theme.Translucent"/>
+            <activity
+                android:configChanges="keyboardHidden|orientation"
+                android:name="org.appcelerator.titanium.TiModalActivity"
+                android:screenOrientation="landscape" android:theme="@android:style/Theme.Translucent"/>
+            <activity
+                android:configChanges="keyboardHidden|orientation"
+                android:name="ti.modules.titanium.ui.TiTabActivity" android:screenOrientation="landscape"/>
+            <activity
+                android:name="ti.modules.titanium.ui.android.TiPreferencesActivity" android:screenOrientation="landscape"/>
+        </application>
+    </manifest>
+</android>
+    <mobileweb>
+        <precache/>
+        <splash>
+            <enabled>true</enabled>
+            <inline-css-images>true</inline-css-images>
+        </splash>
+        <theme>default</theme>
+    </mobileweb>
+    <modules>
+        <module platform="commonjs">ti.cloud</module>
+        <module platform="android" version="1.0">ti.draggable</module>
+    </modules>
+    <deployment-targets>
+        <target device="iphone">false</target>
+        <target device="ipad">false</target>
+        <target device="android">true</target>
+        <target device="mobileweb">true</target>
+    </deployment-targets>
+    <sdk-version>4.0.0.GA</sdk-version>
+    <plugins>
+        <plugin version="1.0">ti.alloy</plugin>
+    </plugins>
+    <property name="appc-app-id" type="string">5577302af0a410027b495fb2</property>
+    <property name="acs-authbase-url-development" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url-development" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-oauth-secret-development" type="string">d6sVvDhQttdgWsgNNLb30cz5kKuRQcRk</property>
+    <property name="acs-oauth-key-development" type="string">0PlcnJU2870qDhlHB50fUSaFLmpOh4CL</property>
+    <property name="acs-api-key-development" type="string">4Ry6Qc6AZQVWi9xWlBG5Ln0Z8Ex0Ab9S</property>
+    <property name="acs-username-development" type="string">appc_app_user_dev</property>
+    <property name="acs-password-development" type="string">p95WHUhbKydjNLW48n</property>
+    <property name="acs-authbase-url-production" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url-production" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-oauth-secret-production" type="string">jrHwW5Kgqbf50selzOcX06TDmyCv4Cea</property>
+    <property name="acs-oauth-key-production" type="string">o7y8eNXwmkfjHPyNA2yZVVZfep95657x</property>
+    <property name="acs-api-key-production" type="string">lCghoDCVYRAcPMY51w16njYDg0ZSogR5</property>
+    <property name="acs-username-production" type="string">appc_app_user</property>
+    <property name="acs-password-production" type="string">o5REr7FPHYyRh3J2DK</property>
+    <property name="appc-org-id" type="string">100032701</property>
+    <property name="appc-creator-user-id" type="string">4fca43cf-5c3c-4658-9b4f-3ae811e96d6c</property>
+</ti:app>
