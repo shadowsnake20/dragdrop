@@ -103,14 +103,12 @@ imageTest.addEventListener('end', function(e){
 	Ti.API.info('top:  '+e.top);
 	Ti.API.info('directionVertical: '+ e.directionVertical);
 	Ti.API.info('center:'+JSON.stringify(e.center));
-	/*****************************************************/
 	var p = {x: e.left, y: e.top};
     var tp = win.convertPointToView(p, image5);
     
-			ancho = Titanium.Platform.displayCaps.platformWidth;
-			alto = Titanium.Platform.displayCaps.platformHeight;
+	ancho = Titanium.Platform.displayCaps.platformWidth;
+	alto = Titanium.Platform.displayCaps.platformHeight;
 			
-	/*****************************************************/
 		if((-0.02*ancho)<=tp.x && tp.x<=(0.15*ancho) && (-0.10*alto)<=tp.y && tp.y<=(0.20*alto)){
 					image5.backgroundColor="red";
 					alert('Muy bien!!!!');
