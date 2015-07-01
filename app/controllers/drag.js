@@ -24,6 +24,7 @@ var rel = 0;
 var newLeft = 0;
 var newTop = 0;
 var mensaje=0;
+var intentos =0;
 /**************random array*******************************************/
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex ;
@@ -266,13 +267,19 @@ rojo.addEventListener('end', function(e){
 			
 			if(mensaje == 1){
 				alert('Muy bien!!!!');
+				intentos =0;
 				rojo.setTop('35%');
 				rojo.setLeft('85%');
 			}
 			else{
 				alert('intentalo nuevamente!!!');
+				intentos++;
 				rojo.setTop('35%');
 				rojo.setLeft('85%');
+			}
+			
+			if(intentos>=3){
+				drag = Alloy.createController('drag');
 			}
 		
 	
@@ -282,6 +289,10 @@ amarillo.addEventListener('end', function(e){
 			alert('intentalo nuevamente!!!');
 			amarillo.setTop(amarillo.getTop());
 			amarillo.setLeft(amarillo.getLeft());
+			intentos++;
+			if(intentos>=3){
+				drag = Alloy.createController('drag');
+			}
 	
 });
 
@@ -289,6 +300,10 @@ azul.addEventListener('end', function(e){
 			alert('intentalo nuevamente!!!');
 			azul.setTop(azul.getTop());
 			azul.setLeft(azul.getLeft());
+			intentos++;
+			if(intentos>=3){
+				drag = Alloy.createController('drag');
+			}
 	
 });
 
@@ -296,6 +311,10 @@ verde.addEventListener('end', function(e){
 			alert('intentalo nuevamente!!!');
 			verde.setTop(verde.getTop());
 			verde.setLeft(verde.getLeft());
+			intentos++;
+			if(intentos>=3){
+				drag = Alloy.createController('drag');
+			}
 	
 });
 
