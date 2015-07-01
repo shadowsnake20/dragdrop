@@ -9,54 +9,108 @@ var win = Ti.UI.createWindow({
 	exitOnClose: true
 });
 
+titulo = Ti.UI.createLabel({
+		  color: 'black',
+		  font: { fontSize:20 },
+		  shadowColor: '#000099',
+		  text: 'Colorea los dibujos de rabia y enojo con rojo',
+		  textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+		  top: 0,
+		  width: Ti.UI.SIZE, height: Ti.UI.SIZE
+		});
+win.add(titulo);
 
 var rel = 0;
 var newLeft = 0;
 var newTop = 0;
+var mensaje=0;
+/**************random array*******************************************/
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex ;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+var dir = [
+'/images/colorear/alegria/alegria',
+'/images/colorear/miedo/miedo',
+'/images/colorear/miedo/miedo',
+'/images/colorear/tristeza/pena',
+'/images/colorear/rabia/enojo',
+'/images/colorear/rabia/enojo',
+'/images/colorear/tristeza/pena',
+'/images/colorear/alegria/alegria'
+];
+shuffle(dir);
+
+
+var indice = [1,2,3,4,5,6,7,8,9,10,11,12];
+shuffle(indice);
+/********************************************************************************************/
 
 var image1 = Ti.UI.createImageView({
-		    image: '/images/colorear/alegria/alegria1.png',
+			id: ''+dir[0],
+		    image: ''+dir[0]+''+indice[0]+'.png',
 		    left:'5%', top:'35%',
 		    width:'20%', height:'20%'
 		  });
 var image2 = Ti.UI.createImageView({
-		    image: '/images/colorear/miedo/miedo2.png',
+			id: ''+dir[1],
+		    image: ''+dir[1]+''+indice[1]+'.png',
 		    left:'25%', top:'35%',
 		    width:'20%', height:'20%'
 		  });
 		  
 var image3 = Ti.UI.createImageView({
-		    image: '/images/colorear/miedo/miedo3.png',
+			id: ''+dir[2],
+		    image: ''+dir[2]+''+indice[2]+'.png',
 		    left:'45%', top:'35%',
 		    width:'20%', height:'20%'
 		  });
 		  
 var image4 = Ti.UI.createImageView({
-		    image: '/images/colorear/miedo/miedo4.png',
+			id: ''+dir[3],
+		    image: ''+dir[3]+''+indice[3]+'.png',
 		    left:'65%', top:'35%',
 		    width:'20%', height:'20%'
 		  });
 		  
 var image5 = Ti.UI.createImageView({
-		    image: '/images/colorear/rabia/enojo10.png',
+			id: ''+dir[4],
+		    image: ''+dir[4]+''+indice[4]+'.png',
 		    left:'5%', top:'65%',
 		    width:'20%', height:'20%'
 		  });
 		  
 var image6 = Ti.UI.createImageView({
-		    image: '/images/colorear/tristeza/pena2.png',
+			id: ''+dir[5],
+		    image: ''+dir[5]+''+indice[5]+'.png',
 		    left:'25%', top:'65%',
 		    width:'20%', height:'20%'
 		  });
 		  
 var image7 = Ti.UI.createImageView({
-		    image: '/images/colorear/tristeza/pena9.png',
+			id: ''+dir[6],
+		    image: ''+dir[6]+''+indice[6]+'.png',
 		    left:'45%', top:'65%',
 		    width:'20%', height:'20%'
 		  });
 		  
 var image8 = Ti.UI.createImageView({
-		    image: '/images/colorear/tristeza/pena5.png',
+			id: ''+dir[7],
+		    image: ''+dir[7]+''+indice[7]+'.png',
 		    left:'65%', top:'65%',
 		    width:'20%', height:'20%'
 		  });
@@ -124,29 +178,103 @@ rojo.addEventListener('move', function(e){
 
 
 rojo.addEventListener('end', function(e){
-	Ti.API.info('-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-');
-	Ti.API.info('Event "end"');
-	Ti.API.info('left: '+e.left);
-	Ti.API.info('top:  '+e.top);
-	Ti.API.info('directionVertical: '+ e.directionVertical);
-	Ti.API.info('center:'+JSON.stringify(e.center));
-	var p = {x: e.left, y: e.top};
-    var tp = win.convertPointToView(p, image5);
-    
+	
+    mensaje=0;
 	ancho = Titanium.Platform.displayCaps.platformWidth;
 	alto = Titanium.Platform.displayCaps.platformHeight;
+	
+			if(image1.id == '/images/colorear/rabia/enojo'){
+				var p = {x: e.left, y: e.top};
+    			var tp = win.convertPointToView(p, image1);
+    			
+    			if((-0.02*ancho)<=tp.x && tp.x<=(0.15*ancho) && (-0.10*alto)<=tp.y && tp.y<=(0.20*alto)){
+					image1.backgroundColor="red";
+					mensaje = 1;
+				}
+			}
 			
-		if((-0.02*ancho)<=tp.x && tp.x<=(0.15*ancho) && (-0.10*alto)<=tp.y && tp.y<=(0.20*alto)){
+			
+			if(image2.id == '/images/colorear/rabia/enojo'){
+				var p = {x: e.left, y: e.top};
+    			var tp = win.convertPointToView(p, image2);
+    			
+    			if((-0.02*ancho)<=tp.x && tp.x<=(0.15*ancho) && (-0.10*alto)<=tp.y && tp.y<=(0.20*alto)){
+					image2.backgroundColor="red";
+					mensaje = 1;
+				}
+			}
+			
+			if(image3.id == '/images/colorear/rabia/enojo'){
+				var p = {x: e.left, y: e.top};
+    			var tp = win.convertPointToView(p, image3);
+    			
+    			if((-0.02*ancho)<=tp.x && tp.x<=(0.15*ancho) && (-0.10*alto)<=tp.y && tp.y<=(0.20*alto)){
+					image3.backgroundColor="red";
+					mensaje = 1;
+				}
+			}
+			
+			if(image4.id == '/images/colorear/rabia/enojo'){
+				var p = {x: e.left, y: e.top};
+    			var tp = win.convertPointToView(p, image4);
+    			
+    			if((-0.02*ancho)<=tp.x && tp.x<=(0.15*ancho) && (-0.10*alto)<=tp.y && tp.y<=(0.20*alto)){
+					image4.backgroundColor="red";
+					mensaje = 1;
+				}
+			}
+			
+			if(image5.id == '/images/colorear/rabia/enojo'){
+				var p = {x: e.left, y: e.top};
+    			var tp = win.convertPointToView(p, image5);
+    			
+    			if((-0.02*ancho)<=tp.x && tp.x<=(0.15*ancho) && (-0.10*alto)<=tp.y && tp.y<=(0.20*alto)){
 					image5.backgroundColor="red";
-					alert('Muy bien!!!!');
-					rojo.setTop('35%');
-					rojo.setLeft('85%');
-		}
-		else{
-			alert('intentalo nuevamente!!!');
-			rojo.setTop('35%');
-			rojo.setLeft('85%');
-		}
+					mensaje = 1;
+				}
+			}
+			
+			if(image6.id == '/images/colorear/rabia/enojo'){
+				var p = {x: e.left, y: e.top};
+    			var tp = win.convertPointToView(p, image6);
+    			
+    			if((-0.02*ancho)<=tp.x && tp.x<=(0.15*ancho) && (-0.10*alto)<=tp.y && tp.y<=(0.20*alto)){
+					image6.backgroundColor="red";
+					mensaje = 1;
+				}
+			}
+			
+			if(image7.id == '/images/colorear/rabia/enojo'){
+				var p = {x: e.left, y: e.top};
+    			var tp = win.convertPointToView(p, image7);
+    			
+    			if((-0.02*ancho)<=tp.x && tp.x<=(0.15*ancho) && (-0.10*alto)<=tp.y && tp.y<=(0.20*alto)){
+					image7.backgroundColor="red";
+					mensaje = 1;
+				}
+			}
+			
+			if(image8.id == '/images/colorear/rabia/enojo'){
+				var p = {x: e.left, y: e.top};
+    			var tp = win.convertPointToView(p, image8);
+    			
+    			if((-0.02*ancho)<=tp.x && tp.x<=(0.15*ancho) && (-0.10*alto)<=tp.y && tp.y<=(0.20*alto)){
+					image8.backgroundColor="red";
+					mensaje = 1;
+				}
+			}
+			
+			if(mensaje == 1){
+				alert('Muy bien!!!!');
+				rojo.setTop('35%');
+				rojo.setLeft('85%');
+			}
+			else{
+				alert('intentalo nuevamente!!!');
+				rojo.setTop('35%');
+				rojo.setLeft('85%');
+			}
+		
 	
 });
 
