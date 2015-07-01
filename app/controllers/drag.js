@@ -70,16 +70,43 @@ win.add(image6);
 win.add(image7);
 win.add(image8);
 
-var imageTest = Draggable.createView({
+var rojo = Draggable.createView({
 			backgroundImage: '/images/colorear/rojo.png',
-		    left:'85%', top: '50%',
+		    left:'85%', top: '35%',
 		    width:'10%',
 			height:'18%',
 });
 
-win.add(imageTest);
+win.add(rojo);
 
-imageTest.addEventListener('start', function(e){
+var amarillo = Draggable.createView({
+			backgroundImage: '/images/colorear/amarillo.png',
+		    left:'85%', top: '10%',
+		    width:'10%',
+			height:'18%',
+});
+
+win.add(amarillo);
+
+var azul = Draggable.createView({
+			backgroundImage: '/images/colorear/azul.png',
+		    left:'85%', top: '60%',
+		    width:'10%',
+			height:'18%',
+});
+
+win.add(azul);
+
+var verde = Draggable.createView({
+			backgroundImage: '/images/colorear/verde.png',
+		    left:'85%', top: '85%',
+		    width:'10%',
+			height:'18%',
+});
+
+win.add(verde);
+
+rojo.addEventListener('start', function(e){
 	Ti.API.info('-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-');
 	Ti.API.info('Event "start"');
 	Ti.API.info('left: '+e.left);
@@ -87,7 +114,7 @@ imageTest.addEventListener('start', function(e){
 	Ti.API.info('center:'+JSON.stringify(e.center));
 });
 
-imageTest.addEventListener('move', function(e){
+rojo.addEventListener('move', function(e){
 	Ti.API.info('-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-');
 	Ti.API.info('Event "move"');
 	Ti.API.info('left: '+e.left);
@@ -96,7 +123,7 @@ imageTest.addEventListener('move', function(e){
 });
 
 
-imageTest.addEventListener('end', function(e){
+rojo.addEventListener('end', function(e){
 	Ti.API.info('-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-');
 	Ti.API.info('Event "end"');
 	Ti.API.info('left: '+e.left);
@@ -112,7 +139,35 @@ imageTest.addEventListener('end', function(e){
 		if((-0.02*ancho)<=tp.x && tp.x<=(0.15*ancho) && (-0.10*alto)<=tp.y && tp.y<=(0.20*alto)){
 					image5.backgroundColor="red";
 					alert('Muy bien!!!!');
+					rojo.setTop('35%');
+					rojo.setLeft('85%');
 		}
+		else{
+			alert('intentalo nuevamente!!!');
+			rojo.setTop('35%');
+			rojo.setLeft('85%');
+		}
+	
+});
+
+amarillo.addEventListener('end', function(e){
+			alert('intentalo nuevamente!!!');
+			amarillo.setTop(amarillo.getTop());
+			amarillo.setLeft(amarillo.getLeft());
+	
+});
+
+azul.addEventListener('end', function(e){
+			alert('intentalo nuevamente!!!');
+			azul.setTop(azul.getTop());
+			azul.setLeft(azul.getLeft());
+	
+});
+
+verde.addEventListener('end', function(e){
+			alert('intentalo nuevamente!!!');
+			verde.setTop(verde.getTop());
+			verde.setLeft(verde.getLeft());
 	
 });
 
