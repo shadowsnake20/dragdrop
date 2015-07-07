@@ -8,8 +8,11 @@
 	color: "#000"
 }
 
-"#label": {
-	font: {
-		fontSize: 12
-	}
+"#Button_0":{
+	top: '20%',
+	backgroundColor: "#9DF"
+}
+"#Button_1":{
+	top: '40%',
+	backgroundColor: "#D9F"
 }
